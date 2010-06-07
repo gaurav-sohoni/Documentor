@@ -1,0 +1,7 @@
+Upload Document for Block: <%= @block.name %>  
+  
+<% form_for :block, @block,:id, :url => documents_url, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :doc %>
+  <%= form.hidden_field :id %>
+  <%= submit_tag 'Upload'%>
+<% end %>

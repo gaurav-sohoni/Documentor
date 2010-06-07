@@ -1,0 +1,30 @@
+<%= link_to 'Back', blocks_url %>
+
+<h3>Categories List</h3>
+
+<table border=1px; cellspacing=0px>
+  <tr><th>Category Name</th><th>Expires</th></tr>
+<% for category in @categories %>
+  <tr>
+    <td><%= category.name %></td>
+    <td style="text-align:center">
+      <% if category.has_expiry %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+    </td>
+    <%#= link_to 'Delete', category_path(category), :method => :delete, :confirm => "Are you sure you want to delete #{category.name}" %>
+  </tr>    
+<% end %>
+</table>
+
+<br/><br/><br/>
+<h3>Create New Category</h3>
+<% form_for :category, @category, :url => {:action => :create} do  |form| %>
+  <%= form.error_messages %>
+  <p><%=form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :has_expiry %><%=form.check_box :has_expiry,{}, 1, 0 %></p>
+  <%= submit_tag 'Create'%>
+<% end -%>

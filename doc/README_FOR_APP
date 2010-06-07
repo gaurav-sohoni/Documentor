@@ -1,0 +1,18 @@
+Blocks Documents Upload Application
+
+To setup the application:
+
+1) rake db:create (creates blocks_dev database)
+
+2) rake setup:app (runs rake db:migrate and loads fixtures for setting up initial data)
+
+3) mongrel_rails start (runs app at localhost:3000)
+
+4) Blocks and Categories can be created using the links below the block List table.
+
+5) Blocks and Categories can be deleted directly from the rows and columns resp. There are various
+ways in which the application UI can be designed. The current implementation makes the upload easier.
+
+6) Expity date for 'Asbestos Survey' is being set with SettingConfig module.
+
+7) Blocks application specific html documentation can be reached at RAILS_ROOT/doc/app/index.html

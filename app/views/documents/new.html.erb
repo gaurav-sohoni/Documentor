@@ -1,0 +1,18 @@
+<%= link_to 'Back', blocks_url %>
+<br/><br/>
+Upload Document for Block: <strong><%= @block.name %></strong> and Category: <strong><%= @category.name %></strong>
+<br/><br/>  
+
+<% if @category.name == 'Asbestos Survey' and @block.build_date < $setting['block_expiry_date'].to_date %>
+  Sorry! Upload for <strong><%= @category.name %></strong> and <%= @block.name %> is not allowed!
+<% else %>
+<% form_for :document, @document,  :url => documents_url(:block_id => @block, :category_id => @category), :html => { :multipart => true } do |form| %>
+  <p><%= form.label :document %>:
+    <%= form.file_field :doc %></p>
+  <% if @category.has_expiry %>
+  <p><%= form.label :expires_on %>:
+  <%= form.date_select :expires_on %>
+  <% end%>
+  <p><%= submit_tag 'Upload'%></p>
+<% end %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= link_to 'Back', blocks_url %>
+
+<h1>Create Block</h1>
+
+<% form_for :block, @block, :url => {:action => :create} do  |form| %>
+  <%= form.error_messages %>
+  <p><%= form.label :name %>
+  <%= form.text_field :name %></p>
+  <p><%= form.label :postcode %>
+  <%= form.text_field :postcode %></p>
+  <p><%= form.label :build_date %>
+  <%= form.date_select :build_date %></p>
+  <%= submit_tag 'Create'%>
+<% end -%>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  postcode: MyString
+  build_date: 2010-05-10 02:11:18
+
+two:
+  name: MyString
+  postcode: MyString
+  build_date: 2010-05-10 02:11:18
